@@ -28,6 +28,10 @@ conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 Run Setup
 
 ```bash
+pip3 install pip<25.0.0
+```
+
+```bash
 pip3 install -r requirements.txt
 ```
 
