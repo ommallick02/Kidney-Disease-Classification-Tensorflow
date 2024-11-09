@@ -16,6 +16,7 @@ class EvaluationPipeline:
         evaluation = Evaluation(eval_config)
         evaluation.evaluation()
         evaluation.save_score()
+        # comment out before deploying on aws
         evaluation.log_into_mlflow()
 
 
