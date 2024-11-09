@@ -131,6 +131,3 @@ artifacts/*
 
 # Zip Files
 */*.zip
-
-# png Files
-*/*.png
