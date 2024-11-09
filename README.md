@@ -126,3 +126,17 @@ DVC
  - Its very lite weight for POC only
  - lite weight expriements tracker
  - It can perform Orchestration (Creating Pipelines)
+
+## Run The App
+
+Run The Flask App
+
+```bash
+python app.py
+```
+
+Now, open up you local host and port
+
+```bash
+http://localhost:8080/
+```
