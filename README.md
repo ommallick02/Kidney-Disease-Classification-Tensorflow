@@ -53,3 +53,48 @@ Verify Tensorflow GPU is working
 ```bash
 python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 ```
+
+## MLflow
+
+- [Documentation](https://mlflow.org/docs/latest/index.html)
+
+```bash
+mlflow ui
+```
+
+## Dagshub
+
+- [Dagshub](https://dagshub.com/)
+
+MLFLOW_TRACKING_URI=https://dagshub.com/om.mallick02/Kidney-Disease-Classification-Tensorflow.mlflow \
+MLFLOW_TRACKING_USERNAME=om.mallick02 \
+MLFLOW_TRACKING_PASSWORD=om.mallick02 \
+python script.py
+
+Run this to export as env variables(Linux/ macOS):
+
+```bash
+export MLFLOW_TRACKING_URI=https://dagshub.com/om.mallick02/Kidney-Disease-Classification-Tensorflow.mlflow
+```
+
+```bash
+export MLFLOW_TRACKING_USERNAME=om.mallick02 
+```
+
+```bash
+export MLFLOW_TRACKING_PASSWORD=
+```
+
+Run this to export as env variables(Windows):
+
+```bash
+$env:MLFLOW_TRACKING_URI="https://dagshub.com/om.mallick02/Kidney-Disease-Classification-Tensorflow.mlflow"
+```
+
+```bash
+$env:MLFLOW_TRACKING_USERNAME="om.mallick02"
+```
+
+```bash
+$env:MLFLOW_TRACKING_PASSWORD=""
+```
