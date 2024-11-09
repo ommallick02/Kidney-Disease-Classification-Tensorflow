@@ -68,7 +68,7 @@ mlflow ui
 
 MLFLOW_TRACKING_URI=https://dagshub.com/om.mallick02/Kidney-Disease-Classification-Tensorflow.mlflow \
 MLFLOW_TRACKING_USERNAME=om.mallick02 \
-MLFLOW_TRACKING_PASSWORD=om.mallick02 \
+MLFLOW_TRACKING_PASSWORD= \
 python script.py
 
 Run this to export as env variables(Linux/ macOS):
@@ -98,3 +98,31 @@ $env:MLFLOW_TRACKING_USERNAME="om.mallick02"
 ```bash
 $env:MLFLOW_TRACKING_PASSWORD=""
 ```
+
+## DVC
+
+```bash
+dvc init
+```
+
+```bash
+dvc repro
+```
+
+```bash
+dvc dag
+```
+
+## About MLflow & DVC
+
+MLflow
+
+ - Its Production Grade
+ - Trace all of your expriements
+ - Logging & taging your model
+
+DVC 
+
+ - Its very lite weight for POC only
+ - lite weight expriements tracker
+ - It can perform Orchestration (Creating Pipelines)
