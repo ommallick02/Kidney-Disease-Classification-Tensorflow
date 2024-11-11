@@ -131,3 +131,6 @@ artifacts/*
 
 # Zip Files
 */*.zip
+
+# mlruns folder
+mlruns/*
