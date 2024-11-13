@@ -175,7 +175,7 @@ http://localhost:8080/
 
 - Save the URI: 566373416292.dkr.ecr.us-east-1.amazonaws.com/chicken
 	
-### 4. Create EC2 Cachine (Ubuntu) 
+### 4. Create EC2 Machine (Ubuntu) 
 
 ### 5. Open EC2 and Install Docker in EC2 Machine:
 		
