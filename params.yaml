@@ -15,4 +15,4 @@ WEIGHTS: imagenet                 # Use pre-trained weights from ImageNet
 
 # Hyperparameters
 LEARNING_RATE: 0.01               # Learning rate for the optimizer
-DROPOUT: 0.20                     # Dropout rate for regularization
+DROPOUT: 0.25                     # Dropout rate for regularization
