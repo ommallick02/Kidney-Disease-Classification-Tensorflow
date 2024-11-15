@@ -28,7 +28,7 @@ class Training:
         # Common data generator arguments
         datagenerator_kwargs = dict(
             rescale=1.0 / 255,
-            validation_split=0.30  # 30% data reserved for validation
+            validation_split=0.20  # 20% data reserved for validation
         )
 
         # Data flow arguments
