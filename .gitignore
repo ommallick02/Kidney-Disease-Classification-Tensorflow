@@ -125,7 +125,7 @@ dmypy.json
 cython_debug/
 
 # Project Artifacts (e.g., model data, intermediate files)
-artifacts/data_ingestion/*
+artifacts/*
 
 # Zip Files
 */*.zip
