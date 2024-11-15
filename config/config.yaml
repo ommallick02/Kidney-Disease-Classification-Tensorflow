@@ -1,16 +1,29 @@
+# Root directory for all generated artifacts
 artifacts_root: artifacts
 
+# Data Ingestion Configuration
 data_ingestion:
+  # Root directory for data ingestion artifacts
   root_dir: artifacts/data_ingestion
+  # URL for downloading the dataset
   source_URL: "https://drive.google.com/file/d/1lUHj6HmdKg8IaIiY6WvcRI957BuH5DRa/view?usp=sharing"
+  # Path to store the downloaded dataset as a ZIP file
   local_data_file: artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone.zip
+  # Directory to store the extracted dataset
   unzip_dir: artifacts/data_ingestion
 
+# Configuration for Preparing the Base Model
 prepare_base_model:
+  # Root directory for base model preparation artifacts
   root_dir: artifacts/prepare_base_model
+  # Path to save the initial base model file
   base_model_path: artifacts/prepare_base_model/base_model.h5
+  # Path to save the updated base model after modifications
   updated_base_model_path: artifacts/prepare_base_model/base_model_updated.h5
 
+# Training Configuration
 training:
+  # Root directory for training artifacts
   root_dir: artifacts/training
+  # Path to save the trained model
   trained_model_path: artifacts/training/model.h5

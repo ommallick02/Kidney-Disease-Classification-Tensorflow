@@ -1,18 +1,37 @@
+# TensorFlow for machine learning framework
 tensorflow<2.11
-pandas 
-dvc
-mlflow==2.2.2
+
+# Data manipulation and analysis
+pandas
 numpy<2.0.0
+
+# Data visualization libraries
 matplotlib
 seaborn
-python-box==6.0.2
-pyYAML
-tqdm
-ensure==1.0.2
-joblib
+
+# Data version control and experiment tracking
+dvc
+mlflow==2.2.2
+
+# Utility libraries
+python-box==6.0.2   # Provides a dictionary with dot notation
+pyYAML              # YAML parsing and processing
+tqdm                # Progress bars for loops
+ensure==1.0.2       # Assertion library
+joblib              # Serialization and parallel computing
+
+# Type hints for PyYAML
 types-PyYAML
+
+# Scientific computing
 scipy
-Flask
-Flask-Cors
+
+# Web application and API tools
+Flask               # Web framework
+Flask-Cors          # Handle CORS for Flask applications
+
+# Google Drive file downloading
 gdown
+
+# Local package import for the project
 -e .

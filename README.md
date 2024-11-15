@@ -1,5 +1,7 @@
 # Kidney-Disease-Classification-Tensorflow
 
+A deep learning pipeline to classify kidney disease from CT scans, using TensorFlow, MLflow, and DVC for an efficient machine learning workflow and deployment.
+
 ## Workflows
 
 1. Update config.yaml
@@ -13,26 +15,24 @@
 9. Update the dvc.yaml
 10. app.py
 
-## How to run?
+## Getting Started
 
-### STEP 01 - Clone the repo
+### Step 1: Clone the Repository
 
 ```bash
 https://github.com/ommallick02/Kidney-Disease-Classification-Tensorflow
 ```
-### STEP 02 - Create and activate a conda environment after opening the repository
+
+### Step 2: Set Up and Activate the Conda Environment
 
 ```bash
 conda create -n kidney-tensorflow python=3.10 -y
-```
-
-```bash
 conda activate kidney-tensorflow
 ```
 
-### STEP 03 - Install the requirements
+### Step 3: Install Requirements
 
-Install CUDA
+Install CUDA (for GPU support)
 
 ```bash
 conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
@@ -41,11 +41,8 @@ conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 Run Setup
 
 ```bash
-pip3 install pip<25.0.0
-```
-
-```bash
-pip3 install -r requirements.txt
+pip install pip<25.0.0
+pip install -r requirements.txt
 ```
 
 Verify Tensorflow GPU is working
@@ -54,80 +51,56 @@ Verify Tensorflow GPU is working
 python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 ```
 
-## MLflow
+## MLflow Integration
 
-- [Documentation](https://mlflow.org/docs/latest/index.html)
+- [MLflow Documentation](https://mlflow.org/docs/latest/index.html)
 
-```bash
-mlflow ui
-```
+## Dagshub Integration
 
-## Dagshub
+- [Dagshub Website](https://dagshub.com/)
 
-- [Dagshub](https://dagshub.com/)
+Access your MLflow server on DagsHub for experiment tracking.
 
-MLFLOW_TRACKING_URI=https://dagshub.com/om.mallick02/Kidney-Disease-Classification-Tensorflow.mlflow \
-MLFLOW_TRACKING_USERNAME=om.mallick02 \
-MLFLOW_TRACKING_PASSWORD= \
-python script.py
-
-Run this to export as env variables(Linux/ macOS):
+### Set Environment Variables for Linux/macOS
 
 ```bash
 export MLFLOW_TRACKING_URI=https://dagshub.com/om.mallick02/Kidney-Disease-Classification-Tensorflow.mlflow
-```
-
-```bash
-export MLFLOW_TRACKING_USERNAME=om.mallick02 
-```
-
-```bash
+export MLFLOW_TRACKING_USERNAME=om.mallick02
 export MLFLOW_TRACKING_PASSWORD=
 ```
 
-Run this to export as env variables(Windows):
+### Set Environment Variables for Windows
 
 ```bash
 $env:MLFLOW_TRACKING_URI="https://dagshub.com/om.mallick02/Kidney-Disease-Classification-Tensorflow.mlflow"
-```
-
-```bash
 $env:MLFLOW_TRACKING_USERNAME="om.mallick02"
-```
-
-```bash
 $env:MLFLOW_TRACKING_PASSWORD=""
 ```
 
-## DVC
+## Data Version Control (DVC)
+
+Initialize and manage pipelines with DVC:
 
 ```bash
 dvc init
-```
-
-```bash
 dvc repro
-```
-
-```bash
 dvc dag
 ```
 
 ## About MLflow & DVC
 
-MLflow
+### MLflow
 
- - Its Production Grade
- - Trace all of your expriements
- - Logging & taging your model
+- Production-grade tool for tracking and managing experiments.
+- Logs and tags models for easy comparison.
+- Provides model versioning and experiment tracking.
 
-DVC 
+### DVC 
 
- - Its very lite weight for POC only
- - lite weight expriements tracker
- - It can perform Orchestration (Creating Pipelines)
+- Lightweight tool for experiment tracking in Proof-of-Concept (POC) stages.
+- Supports orchestration and pipeline creation for ML workflows.
 
-## Run The App
+## Running the Application
 
 Run The Flask App
 
@@ -135,7 +108,7 @@ Run The Flask App
 python app.py
 ```
 
-Now, open up you local host and port
+Access the app at:
 
 ```bash
 http://localhost:8080/
@@ -147,70 +120,55 @@ http://localhost:8080/
 
 ### 2. Create IAM user for deployment
 
-#### With specific access
+Provide the following access permissions:
 
 1. EC2 access : It is virtual machine
-
 2. ECR: Elastic Container registry to save your docker image in aws
 
-#### Description: About the deployment
+#### Deployment Steps
 
-1. Build docker image of the source code
+1. Build the Docker image from the source code.
+2. Push the Docker image to ECR.
+3. Launch an EC2 instance.
+4. Pull the image from ECR to EC2.
+5. Run the Docker image on EC2.
 
-2. Push your docker image to ECR
-
-3. Launch Your EC2 
-
-4. Pull Your image from ECR in EC2
-
-5. Lauch your docker image in EC2
-
-#### Policy:
+##### Required IAM Policies:
 
 1. AmazonEC2ContainerRegistryFullAccess
-
 2. AmazonEC2FullAccess
 
-### 3. Create ECR repo to store/save docker image
+### 3. Create an ECR Repository
 
-- Save the URI: 566373416292.dkr.ecr.us-east-1.amazonaws.com/chicken
+- Example URI: 566373416292.dkr.ecr.us-east-1.amazonaws.com/chicken
 	
-### 4. Create EC2 Machine (Ubuntu) 
+### 4. Launch an EC2 Instance (Ubuntu)
 
-### 5. Open EC2 and Install Docker in EC2 Machine:
-		
-Optional
+### 5. Install Docker on EC2
+
+Update and install Docker:
 
 ```bash
 sudo apt-get update -y
 sudo apt-get upgrade
-```
-
-Required
-
-```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 sudo usermod -aG docker ubuntu
 newgrp docker
 ```
 	
-### 6. Configure EC2 as self-hosted runner:
+### 6. Configure EC2 as a Self-Hosted GitHub Runner
 
-```bash
-setting>actions>runner>new self hosted runner> choose os> then run command one by one
-```
+Navigate to: Settings > Actions > Runners > New Self-Hosted Runner and follow the instructions for setting up a runner on your EC2 instance.
 
-### 7. Setup github secrets:
+### 7. Configure GitHub Secrets for Deployment
+
+Add the following secrets in GitHub Actions:
 
 ```bash
 AWS_ACCESS_KEY_ID=
-
 AWS_SECRET_ACCESS_KEY=
-
-AWS_REGION = us-east-1
-
-AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
-
-ECR_REPOSITORY_NAME = simple-app
+AWS_REGION=
+AWS_ECR_LOGIN_URI=
+ECR_REPOSITORY_NAME=
 ```

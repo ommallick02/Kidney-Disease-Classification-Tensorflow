@@ -1,8 +1,18 @@
-AUGMENTATION: True
-IMAGE_SIZE: [224, 224, 3] # as per VGG 19 model
-BATCH_SIZE: 32
-INCLUDE_TOP: False
-EPOCHS: 100
-CLASSES: 4
-WEIGHTS: imagenet
-LEARNING_RATE: 0.01
+# Augmentation settings
+AUGMENTATION: True                # Enable/Disable data augmentation
+
+# Input image specifications
+IMAGE_SIZE: [224, 224, 3]         # Input image dimensions (height, width, channels) as per VGG19 model
+
+# Training settings
+BATCH_SIZE: 32                    # Number of images per training batch
+EPOCHS: 100                       # Total number of training epochs
+CLASSES: 4                        # Number of output classes
+
+# Model configuration
+INCLUDE_TOP: False                # Exclude fully connected layers for transfer learning
+WEIGHTS: imagenet                 # Use pre-trained weights from ImageNet
+
+# Hyperparameters
+LEARNING_RATE: 0.01               # Learning rate for the optimizer
+DROPOUT: 0.20                     # Dropout rate for regularization
