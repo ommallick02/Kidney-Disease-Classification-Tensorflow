@@ -20,7 +20,7 @@ A deep learning pipeline to classify kidney disease from CT scans, using TensorF
 ### Step 1: Clone the Repository
 
 ```bash
-https://github.com/ommallick02/Kidney-Disease-Classification-Tensorflow
+git clone https://github.com/ommallick02/Kidney-Disease-Classification-Tensorflow
 ```
 
 ### Step 2: Set Up and Activate the Conda Environment
